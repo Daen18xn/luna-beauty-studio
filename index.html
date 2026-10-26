@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Luna Beauty Studio</title>
+
+    <meta name="description" content="Descubre los servicios de belleza de Luna Beauty Studio.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="encabezado">
+
+        <a href="#inicio" class="logo">Luna Beauty Studio</a>
+
+        <button
+            class="boton-menu"
+            id="botonMenu"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="navegacion"
+        >
+            ☰
+        </button>
+
+        <nav class="navegacion" id="navegacion">
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+
+    </header>
+
+
+    <!-- PORTADA -->
+    <main>
+
+        <section class="portada" id="inicio">
+
+            <div class="portada-contenido">
+
+                <p class="etiqueta">BELLEZA · CUIDADO · BIENESTAR</p>
+
+                <h1>Tu belleza merece un momento especial</h1>
+
+                <p class="descripcion">
+                    Un espacio creado para que te sientas hermosa,
+                    segura y especial. Descubre nuestros servicios
+                    y encuentra tu momento de cuidado personal.
+                </p>
+
+                <a href="#servicios" class="boton">
+                    Descubrir servicios
+                </a>
+
+            </div>
+
+            <div class="portada-imagen">
+                <img
+                    src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1000&q=85"
+                    alt="Inspiración de belleza y cuidado personal"
+                >
+            </div>
+
+        </section>
+
+
+        <!-- SERVICIOS -->
+        <section class="seccion" id="servicios">
+
+            <p class="etiqueta">NUESTROS SERVICIOS</p>
+
+            <h2>Un momento para ti</h2>
+
+            <p class="introduccion">
+                Descubre nuestras opciones de belleza y cuidado personal.
+            </p>
+
+            <div class="tarjetas">
+
+                <article class="tarjeta">
+
+                    <div class="icono-servicio" aria-hidden="true">✧</div>
+
+                    <h3>Maquillaje</h3>
+
+                    <p>
+                        Un look pensado para destacar tu belleza
+                        en ocasiones especiales.
+                    </p>
+
+                    <p class="precio">Desde $15.000</p>
+
+                </article>
+
+
+                <article class="tarjeta">
+
+                    <div class="icono-servicio" aria-hidden="true">♡</div>
+
+                    <h3>Cuidado facial</h3>
+
+                    <p>
+                        Un momento de cuidado para consentirte
+                        y dedicarte tiempo.
+                    </p>
+
+                    <p class="precio">Desde $12.000</p>
+
+                </article>
+
+
+                <article class="tarjeta">
+
+                    <div class="icono-servicio" aria-hidden="true">✿</div>
+
+                    <h3>Manicure</h3>
+
+                    <p>
+                        Dale a tus manos un toque delicado,
+                        elegante y especial.
+                    </p>
+
+                    <p class="precio">Desde $10.000</p>
+
+                </article>
+
+            </div>
+
+            <p class="nota">
+                Proyecto de demostración: servicios y precios ficticios.
+            </p>
+
+        </section>
+
+
+        <!-- SOBRE NOSOTROS -->
+        <section class="sobre-nosotros" id="nosotros">
+
+            <p class="etiqueta">CONÓCENOS</p>
+
+            <h2>Un espacio pensado para ti</h2>
+
+            <p>
+                En Luna Beauty Studio creemos que la belleza también
+                está en sentirse bien con una misma. Nuestro concepto
+                combina delicadeza, tranquilidad y atención a los detalles.
+            </p>
+
+        </section>
+
+
+        <!-- CONTACTO -->
+        <section class="contacto" id="contacto">
+
+            <p class="etiqueta">ESTAMOS PARA TI</p>
+
+            <h2>¿Lista para tu próximo momento especial?</h2>
+
+            <p>
+                Este espacio está preparado para incorporar los datos
+                de contacto y las reservas del negocio.
+            </p>
+
+            <a href="#inicio" class="boton">
+                Volver al inicio
+            </a>
+
+            <p class="nota">
+                Sitio de demostración. Todavía no recibe reservas reales.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="pie">
+
+        <p>© <span id="anio"></span> Luna Beauty Studio</p>
+
+        <p>Belleza en cada detalle ✧</p>
+
+    </footer>
+
+
+    <!-- FUNCIONALIDAD DEL MENÚ -->
+    <script>
+        const botonMenu = document.getElementById("botonMenu");
+        const navegacion = document.getElementById("navegacion");
+
+        botonMenu.addEventListener("click", function () {
+            const menuAbierto = navegacion.classList.toggle("abierta");
+
+            botonMenu.setAttribute("aria-expanded", menuAbierto);
+            botonMenu.setAttribute(
+                "aria-label",
+                menuAbierto ? "Cerrar menú" : "Abrir menú"
+            );
+
+            botonMenu.textContent = menuAbierto ? "✕" : "☰";
+        });
+
+        navegacion.querySelectorAll("a").forEach(function (enlace) {
+            enlace.addEventListener("click", function () {
+                navegacion.classList.remove("abierta");
+                botonMenu.setAttribute("aria-expanded", "false");
+                botonMenu.setAttribute("aria-label", "Abrir menú");
+                botonMenu.textContent = "☰";
+            });
+        });
+
+        document.getElementById("anio").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
